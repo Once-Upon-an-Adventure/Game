@@ -9,7 +9,7 @@ void setup() {
   cindy = new Cinderella();
   pic = new Background();
   pumpkin[0] = new Pumpkin();
-  time = new Timer(500);
+  time = new Timer(8000);
 }
 
 void draw() {

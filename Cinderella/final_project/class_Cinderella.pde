@@ -38,9 +38,10 @@ class Cinderella {
     if (locationY  < limit && yspeed < 0) {
       yspeed = yspeed * .94;
     }
-    if (locationX <= xlimit1 || locationX >= xlimit2){
-      xspeed = 0;
-    }
+    locationX = constrain(locationX,xlimit1,xlimit2);
+//    if (locationX <= xlimit1 || locationX >= xlimit2){
+//      xspeed = 0;
+//    }
     if (jumping == true) {
       //makes it go up
       if (locationY < limit) {

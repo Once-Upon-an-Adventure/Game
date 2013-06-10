@@ -19,12 +19,14 @@ class Pumpkin {
     ellipseMode(CENTER);
     ellipse(locationX, locationY, d, d);
     imageMode(CENTER);
-    translate(locationX,locationY);
+    pushMatrix();
+    translate(locationX, locationY);
     rotate(radians(r));
     image(pumpkin, 0, 0);
+    popMatrix();
     r++;
   }
-  void move(){
+  void move() {
     locationX = locationX - speed;
   }
 }
