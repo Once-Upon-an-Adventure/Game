@@ -1,14 +1,13 @@
 class Cinderella {
   float locationX;
   float locationY;
-  float thickness;
+  float d;
   float tallness;
   float limit;
   float xlimit1;
   float xlimit2;
   float yspeed;
   float xspeed;
-  float jumpThisHigh;
   float gravity;
   boolean jumping;
   PImage cindy;
@@ -17,19 +16,21 @@ class Cinderella {
    cindy= loadImage("cinderella.png");
     locationX = width/2;
     locationY = 0;
-    thickness = 50;
-    tallness = 100;
+    d = 80;
     limit = 50;
     yspeed = 3;
     xspeed = .5;
-    jumpThisHigh = 50;
     gravity = -.5;
     xlimit2 = width/2+80;
     xlimit1 = width/2 - 80;
-//    jumping = true;
   }
+  
   void display() {
     image(cindy, locationX, locationY);
+    noFill();
+    noStroke();
+    ellipseMode(CORNER);
+    ellipse(locationX, locationY, d, d);
    // rect(locationX, locationY, thickness, tallness);
   }
   void move() {
@@ -40,9 +41,6 @@ class Cinderella {
     if (locationX <= xlimit1 || locationX >= xlimit2){
       xspeed = 0;
     }
-  
-
-
     if (jumping == true) {
       //makes it go up
       if (locationY < limit) {
@@ -82,6 +80,14 @@ class Cinderella {
         keyCode= DOWN;
       }
     }
+  }
+  void check(Pumpkin p){
+  if (dist(locationX, locationY, p.locationX, p.locationY) < d/2 + p.d/2){
+    print ("TOUCH!");
+}
+else {
+  print("...");
+}
   }
 }
 
