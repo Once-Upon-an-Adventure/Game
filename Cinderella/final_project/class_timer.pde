@@ -15,6 +15,7 @@ class Timer {
   boolean checkTime() {
     if (currentTime-oldTime >= time) {
       oldTime = currentTime;
+      time=int(random(2000,5000));
       return true;
     }
     else {
