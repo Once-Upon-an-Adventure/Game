@@ -7,7 +7,7 @@ class Background {
   Background(){
     imageMode(CORNER);
     background = loadImage("backgrounded.jpg");
-    speed = -.2;
+    speed = -.4;
     x = 0;
     y = 0;
   }
@@ -17,5 +17,8 @@ class Background {
   }
   void move(){
     x = x + speed;
+    if(millis()>=77000){
+      speed = 0;
+    }
   }
 }

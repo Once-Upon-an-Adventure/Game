@@ -17,9 +17,9 @@ class Cinderella {
     locationX = width/2;
     locationY = 0;
     d = 80;
-    limit = 50;
-    yspeed = 3;
-    xspeed = .5;
+    limit = 66;
+    yspeed = 4;
+    xspeed = 2;
     gravity = -.5;
     xlimit2 = width/2+80;
     xlimit1 = width/2 - 80;
@@ -27,8 +27,8 @@ class Cinderella {
   
   void display() {
     image(cindy, locationX, locationY);
-    noFill();
-    noStroke();
+//    noFill();
+//    noStroke();
     ellipseMode(CORNER);
     ellipse(locationX, locationY, d, d);
    // rect(locationX, locationY, thickness, tallness);
@@ -36,7 +36,7 @@ class Cinderella {
   void move() {
     //if the speed is negative then it decreases the speed
     if (locationY  < limit && yspeed < 0) {
-      yspeed = yspeed * .94;
+      yspeed = yspeed * .99;
     }
     locationX = constrain(locationX,xlimit1,xlimit2);
 //    if (locationX <= xlimit1 || locationX >= xlimit2){
@@ -44,13 +44,13 @@ class Cinderella {
 //    }
     if (jumping == true) {
       //makes it go up
-      if (locationY < limit) {
+      if (locationY <= limit) {
         locationY = locationY + yspeed;
       }
 
       // if the location is higher then the limit then it turns speed negative and gives it gravity
-      if (locationY > limit) {
-        yspeed = yspeed * -1;
+      else {
+        yspeed = -abs(yspeed);
         locationY = locationY + yspeed;
         yspeed = yspeed + gravity;
       }
@@ -58,6 +58,7 @@ class Cinderella {
     // if the location is below zero then puts the speed to 0 and the location to 0
     if (locationY <= 0 ) {
       yspeed = 0;
+     
       locationY = 0;
       jumping = false;
     }
@@ -83,7 +84,7 @@ class Cinderella {
     }
   }
   void check(Pumpkin p){
-  if (dist(locationX, locationY, p.locationX, p.locationY) < d/2 + p.d/2){
+  if (dist(locationX + d, locationY + d, p.locationX + p.d, p.locationY + p.d) < d/2 + p.d/2){
     print ("TOUCH!");
 }
 else {
