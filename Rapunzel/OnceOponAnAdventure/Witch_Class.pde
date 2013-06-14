@@ -6,8 +6,8 @@ class Witch {
   Witch() {
     witch = loadImage("witch.png");
     x = 1;
-    y= random(0,580);
-    xspeed = random(1,3);
+    y= random(0,550);
+    xspeed = random(2,5);
 }
 void display() {
   image(witch,x,y);
@@ -16,7 +16,7 @@ void move() {
   x+=xspeed;
 }
 boolean caught (Prince p) {
-  if (dist(x,y,p.x,p.y) <= 100/2 + 80/2){
+  if (dist(x,y,p.x,p.y) < 100/2 + 80/2){
   return true;
   }
   else {
@@ -26,8 +26,8 @@ boolean caught (Prince p) {
 void touch (Prince p) {
   if (caught (p) == true) {
     x = 1;
-    y = random(0,580);
-    xspeed = random(1,3);
+    y = random(0,550);
+    xspeed = random(2,5);
   }
 }
 
