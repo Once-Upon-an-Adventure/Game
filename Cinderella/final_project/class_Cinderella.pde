@@ -27,8 +27,8 @@ class Cinderella {
   
   void display() {
     image(cindy, locationX, locationY);
-//    noFill();
-//    noStroke();
+    noFill();
+    noStroke();
     ellipseMode(CORNER);
     ellipse(locationX, locationY, d, d);
    // rect(locationX, locationY, thickness, tallness);
@@ -86,6 +86,7 @@ class Cinderella {
   void check(Pumpkin p){
   if (dist(locationX + d, locationY + d, p.locationX + p.d, p.locationY + p.d) < d/2 + p.d/2){
     print ("TOUCH!");
+    end=!end;
 }
 else {
   print("...");

@@ -9,7 +9,7 @@ class Pumpkin {
 
   Pumpkin() {
     pumpkin = loadImage("pumpkin.png");
-    speed = 2;
+    speed = 4;
     locationX = width-40;
     locationY = 20;
     r = 1;
